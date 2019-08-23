@@ -109,6 +109,8 @@ class Main extends eui.UILayer {
                     break;
                 case "KeyD":
                     this.player.X = 8;
+                    const hit:boolean = this.player.hitTestPoint(150, 120, true);
+                    console.log(hit ? "hited" : "not hit");
                     break;
                 default:
                     return
