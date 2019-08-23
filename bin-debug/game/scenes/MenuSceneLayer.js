@@ -8,12 +8,10 @@ var __extends = this && this.__extends || function __extends(t, e) {
 for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
-var Menu = (function (_super) {
-    __extends(Menu, _super);
-    function Menu(x, y) {
+var MenuSceneLayer = (function (_super) {
+    __extends(MenuSceneLayer, _super);
+    function MenuSceneLayer() {
         var _this = _super.call(this) || this;
-        _this.x = x;
-        _this.y = y;
         _this.width = Params.Width;
         _this.height = Params.Height;
         _this.upButton = RES.getRes("button_up_png");
@@ -22,13 +20,13 @@ var Menu = (function (_super) {
         _this.exitButton = new egret.Bitmap();
         return _this;
     }
-    Menu.prototype.start = function () {
+    MenuSceneLayer.prototype.start = function () {
         this.createButton(this.startButton, this.width / 2 - 100, 100);
         this.createButton(this.exitButton, this.width / 2 - 100, 280);
         this.addChild(this.startButton);
         this.addChild(this.exitButton);
     };
-    Menu.prototype.createButton = function (button, x, y) {
+    MenuSceneLayer.prototype.createButton = function (button, x, y) {
         var _this = this;
         button.texture = this.upButton;
         button.width = 200;
@@ -40,6 +38,6 @@ var Menu = (function (_super) {
             button.texture = _this.downButton;
         }, this);
     };
-    return Menu;
+    return MenuSceneLayer;
 }(egret.DisplayObjectContainer));
-__reflect(Menu.prototype, "Menu");
+__reflect(MenuSceneLayer.prototype, "MenuSceneLayer");

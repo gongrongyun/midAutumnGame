@@ -1,8 +1,7 @@
-class Opening extends egret.DisplayObjectContainer {
-    constructor(x:number, y:number) {
+class OpeningSceneLayer extends egret.DisplayObjectContainer {
+    constructor() {
         super();
-        this.x = x;
-        this.y = y;
+        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.start, this);
         this.width = Params.Width;
         this.height = Params.Height;
     }
@@ -10,7 +9,7 @@ class Opening extends egret.DisplayObjectContainer {
     public start():void {
         this.addLogo()
         this.addText();
-        const tw:egret.Tween = egret.Tween.get(this)
+        const tw:egret.Tween = egret.Tween.get(this);
         tw.to({"alpha":0}, 2000);
     }
 

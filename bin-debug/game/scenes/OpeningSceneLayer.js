@@ -8,23 +8,22 @@ var __extends = this && this.__extends || function __extends(t, e) {
 for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
-var Opening = (function (_super) {
-    __extends(Opening, _super);
-    function Opening(x, y) {
+var OpeningSceneLayer = (function (_super) {
+    __extends(OpeningSceneLayer, _super);
+    function OpeningSceneLayer() {
         var _this = _super.call(this) || this;
-        _this.x = x;
-        _this.y = y;
+        _this.addEventListener(egret.Event.ADDED_TO_STAGE, _this.start, _this);
         _this.width = Params.Width;
         _this.height = Params.Height;
         return _this;
     }
-    Opening.prototype.start = function () {
+    OpeningSceneLayer.prototype.start = function () {
         this.addLogo();
         this.addText();
         var tw = egret.Tween.get(this);
         tw.to({ "alpha": 0 }, 2000);
     };
-    Opening.prototype.addLogo = function () {
+    OpeningSceneLayer.prototype.addLogo = function () {
         var logo = new egret.Bitmap(RES.getRes("qkteam_png"));
         logo.x = this.width / 2 - 100;
         logo.y = 100;
@@ -32,7 +31,7 @@ var Opening = (function (_super) {
         logo.height = 200;
         this.addChild(logo);
     };
-    Opening.prototype.addText = function () {
+    OpeningSceneLayer.prototype.addText = function () {
         var text = new egret.TextField();
         text.text = "晴空工作室";
         text.size = 50;
@@ -42,6 +41,6 @@ var Opening = (function (_super) {
         text.x = this.width / 2 - 125;
         this.addChild(text);
     };
-    return Opening;
+    return OpeningSceneLayer;
 }(egret.DisplayObjectContainer));
-__reflect(Opening.prototype, "Opening");
+__reflect(OpeningSceneLayer.prototype, "OpeningSceneLayer");

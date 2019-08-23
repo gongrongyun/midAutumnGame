@@ -1,14 +1,12 @@
-class Menu extends egret.DisplayObjectContainer {
+class MenuSceneLayer extends egret.DisplayObjectContainer {
 
     private upButton:any;
     private downButton:any;
     public startButton:egret.Bitmap;
     public exitButton:egret.Bitmap;
 
-    constructor(x:number, y:number) {
+    constructor() {
         super();
-        this.x = x;
-        this.y = y;
         this.width = Params.Width;
         this.height = Params.Height;
         this.upButton = RES.getRes("button_up_png");

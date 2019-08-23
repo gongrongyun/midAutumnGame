@@ -125,55 +125,7 @@ var Main = (function (_super) {
         });
     };
     Main.prototype.createGameScene = function () {
-        this.opening();
-        egret.Tween.get(this).wait(2000).call(this.addMenu);
-    };
-    Main.prototype.opening = function () {
-        this.cover = new Opening(0, 0);
-        this.addChild(this.cover);
-        this.cover.start();
-    };
-    Main.prototype.addMenu = function () {
-        var _this = this;
-        this.removeChild(this.cover);
-        this.menu = new Menu(0, 0);
-        this.addChild(this.menu);
-        this.menu.start();
-        this.menu.startButton.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            _this.menu.startButton.texture = RES.getRes("button_up_png");
-            _this.removeChild(_this.menu);
-            _this.addPlayer();
-        }, this);
-        this.menu.exitButton.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
-            _this.menu.exitButton.texture = RES.getRes("button_up_png");
-            window.close();
-        }, this);
-    };
-    Main.prototype.addPlayer = function () {
-        var _this = this;
-        this.player = new Player();
-        this.player.init();
-        this.addChild(this.player);
-        window.addEventListener("keydown", function (e) {
-            switch (e.code) {
-                case "KeyW":
-                    _this.player.Y = -8;
-                    break;
-                case "KeyS":
-                    _this.player.Y = 8;
-                    break;
-                case "KeyA":
-                    _this.player.X = -8;
-                    break;
-                case "KeyD":
-                    _this.player.X = 8;
-                    var hit = _this.player.hitTestPoint(150, 120, true);
-                    console.log(hit ? "hited" : "not hit");
-                    break;
-                default:
-                    return;
-            }
-        });
+        this.addChild(new Start());
     };
     return Main;
 }(eui.UILayer));

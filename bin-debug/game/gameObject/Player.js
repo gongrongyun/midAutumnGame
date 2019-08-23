@@ -22,6 +22,28 @@ var Player = (function (_super) {
         this.addEventListener("keydown", function (e) {
             console.log("ok");
         }, this);
+        this.addListener();
+    };
+    Player.prototype.addListener = function () {
+        var _this = this;
+        window.addEventListener("keydown", function (e) {
+            switch (e.code) {
+                case "KeyW":
+                    _this.y += -8;
+                    break;
+                case "KeyS":
+                    _this.y += 8;
+                    break;
+                case "KeyA":
+                    _this.x += -8;
+                    break;
+                case "KeyD":
+                    _this.x += 8;
+                    break;
+                default:
+                    return;
+            }
+        });
     };
     Object.defineProperty(Player.prototype, "X", {
         set: function (x) {
