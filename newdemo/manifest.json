@@ -12,6 +12,7 @@
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
 		"bin-debug/game/Help.js",
+		"bin-debug/game/Param.js",
 		"bin-debug/game/SceneControl.js",
 		"bin-debug/game/Start.js",
 		"bin-debug/game/GameObject/Player.js",

@@ -5,4 +5,10 @@ class Help {
         result.texture = texture;
         return result;
     }
+
+    public static removeChild(child: egret.DisplayObject): void {
+        if (child && child.parent) {
+            child.parent.removeChild(child);
+        }
+    }
 }
