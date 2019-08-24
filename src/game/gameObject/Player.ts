@@ -3,7 +3,7 @@ class Player extends egret.Bitmap {
         super();
     }
 
-    public init():void {
+    public init(): void {
         this.texture = RES.getRes("player_png");
         this.width = 100;
         this.height = 100;
@@ -15,7 +15,7 @@ class Player extends egret.Bitmap {
         this.addListener();
     }
 
-    private addListener():void {
+    private addListener(): void {
         window.addEventListener("keydown", (e) => {
             switch(e.code) {
                 case "KeyW":
@@ -36,11 +36,11 @@ class Player extends egret.Bitmap {
         })
     }
 
-    set X(x:number) {
+    set X(x: number) {
         this.x += x;
     }
 
-    set Y(y:number) {
+    set Y(y: number) {
         const tw = egret.Tween.get(this);
         tw.to({y: this.y + y}, 16);
     }

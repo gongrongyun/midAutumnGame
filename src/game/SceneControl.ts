@@ -2,17 +2,17 @@
  * 场景控制类
  */
 class SceneControl extends egret.Sprite {
-    private static sceneControl:SceneControl
+    private static sceneControl: SceneControl;
 
-    private currentStage:egret.DisplayObjectContainer;
+    private currentStage: egret.DisplayObjectContainer;
 
-    private openScene:OpeningSceneLayer;
+    private openScene: OpeningSceneLayer;
 
-    private menuScene:MenuSceneLayer;
+    private menuScene: MenuSceneLayer;
 
-    private gameScene:GameSceneLayer;
+    private gameScene: GameSceneLayer;
 
-    public static get init() {
+    public static get init(): SceneControl {
         if (!this.sceneControl) {
             this.sceneControl = new SceneControl();
         }
@@ -25,16 +25,16 @@ class SceneControl extends egret.Sprite {
         this.menuScene = new MenuSceneLayer();
         this.gameScene = new GameSceneLayer();
     }
-    
-    public setStageHandler(stage:egret.DisplayObjectContainer):void {
+
+    public setStageHandler(stage: egret.DisplayObjectContainer): void {
         this.currentStage = stage;
     }
 
-    public setOpeningScene():void {
+    public setOpeningScene(): void {
         this.currentStage.addChild(this.openScene);
     }
 
-    public setMenuScene():void {
+    public setMenuScene(): void {
         this.currentStage.addChild(this.menuScene);
     }
 }

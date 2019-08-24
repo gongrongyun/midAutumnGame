@@ -1,9 +1,8 @@
 class MenuSceneLayer extends egret.DisplayObjectContainer {
-
-    private upButton:any;
-    private downButton:any;
-    public startButton:egret.Bitmap;
-    public exitButton:egret.Bitmap;
+    private upButton: egret.Texture;
+    private downButton: egret.Texture;
+    public startButton: egret.Bitmap;
+    public exitButton: egret.Bitmap;
 
     constructor() {
         super();
@@ -15,22 +14,26 @@ class MenuSceneLayer extends egret.DisplayObjectContainer {
         this.exitButton = new egret.Bitmap();
     }
 
-    public start():void {
-        this.createButton(this.startButton, this.width/2-100, 100);
-        this.createButton(this.exitButton, this.width/2-100, 280);
+    public start(): void {
+        this.createButton(this.startButton, this.width / 2 - 100, 100);
+        this.createButton(this.exitButton, this.width / 2 - 100, 280);
         this.addChild(this.startButton);
         this.addChild(this.exitButton);
     }
 
-    private createButton(button:egret.Bitmap, x:number, y:number):void {
+    private createButton(button: egret.Bitmap, x: number, y: number): void {
         button.texture = this.upButton;
         button.width = 200;
         button.height = 80;
         button.x = x;
         button.y = y;
         button.touchEnabled = true;
-        button.addEventListener(egret.TouchEvent.TOUCH_BEGIN, () => {
-            button.texture = this.downButton;
-        }, this);
+        button.addEventListener(
+            egret.TouchEvent.TOUCH_BEGIN,
+            () => {
+                button.texture = this.downButton;
+            },
+            this
+        );
     }
 }

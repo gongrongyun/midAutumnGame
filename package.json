@@ -1,0 +1,38 @@
+{
+    "name": "midautumngame",
+    "version": "1.0.0",
+    "description": "this is a mid-autumn game of qkteam",
+    "main": "index.js",
+    "scripts": {
+        "lint": "eslint src/game --ext .ts --fix"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.ts": [
+            "eslint src/game --ext .ts --fix",
+            "git add"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/gongrongyun/midAutumnGame.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/gongrongyun/midAutumnGame/issues"
+    },
+    "homepage": "https://github.com/gongrongyun/midAutumnGame#readme",
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^2.0.0",
+        "@typescript-eslint/parser": "^2.0.0",
+        "eslint": "^6.2.1",
+        "husky": "^3.0.4",
+        "lint-staged": "^9.2.3",
+        "typescript": "^3.5.3"
+    }
+}

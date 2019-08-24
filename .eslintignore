@@ -1,0 +1,8 @@
+node_modules
+scripts
+bin-debug
+libs
+template
+src/ThemeAdapter.ts
+src/AssetAdapter.ts
+src/Platform.ts
