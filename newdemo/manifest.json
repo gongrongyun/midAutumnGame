@@ -11,6 +11,7 @@
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
 		"bin-debug/Platform.js",
+		"bin-debug/game/gravity.js",
 		"bin-debug/game/Help.js",
 		"bin-debug/game/Param.js",
 		"bin-debug/game/SceneControl.js",
