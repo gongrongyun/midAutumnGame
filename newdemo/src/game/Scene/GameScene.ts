@@ -16,7 +16,7 @@ class GameScene extends egret.DisplayObjectContainer {
         this.text = new egret.TextField();
         this.beta = 0;
         this.gamma = 0;
-        this.T = 0.016;
+        this.T = 0.01667;
     }
 
     private addStage(): void {
@@ -42,11 +42,11 @@ class GameScene extends egret.DisplayObjectContainer {
 
     private update(timeStamp: number): boolean {
         this.player.x +=
-            this.player.SpeedX * this.T +
-            (1 / 2) * this.player.accelerationX * this.T * this.T;
+            6*this.player.SpeedX * this.T +
+            2*this.player.accelerationX * this.T * this.T;
         this.player.y +=
-            this.player.SpeedY * this.T +
-            (1 / 2) * this.player.accelerationY * this.T * this.T;
+            6*this.player.SpeedY * this.T +
+            2*this.player.accelerationY * this.T * this.T;
         if (this.player.x < 50) {
             this.player.x = 50;
         }
@@ -59,8 +59,8 @@ class GameScene extends egret.DisplayObjectContainer {
         if (this.player.x > 590) {
             this.player.x = 590;
         }
-        this.player.SpeedX = this.player.accelerationX * this.T;
-        this.player.SpeedY = this.player.accelerationY * this.T;
+        this.player.SpeedX = this.player.accelerationX * this.T*2;
+        this.player.SpeedY = this.player.accelerationY * this.T*2;
         this.text.text =
             "x = " +
             this.player.x +
