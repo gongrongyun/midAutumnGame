@@ -6,6 +6,6 @@ class Start extends egret.DisplayObjectContainer {
 
     private addStage(): void {
         SceneControl.init.setStageHandler(this);
-        SceneControl.init.setGameScene();
+        SceneControl.init.setOpenScene();
     }
 }
