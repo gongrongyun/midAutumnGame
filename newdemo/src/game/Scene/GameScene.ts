@@ -6,7 +6,8 @@ class GameScene extends egret.DisplayObjectContainer {
     private gamma: number;
     private T: number;
     private text: egret.TextField;
-
+    private Gameobject: Gameobject;
+    private distance: number;
     constructor() {
         super();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.addStage, this);
@@ -17,12 +18,14 @@ class GameScene extends egret.DisplayObjectContainer {
         this.beta = 0;
         this.gamma = 0;
         this.T = 0.01667;
+        this.Gameobject = new Gameobject(Math.round(Math.random()*640), Math.round(Math.random()*1036));
     }
 
     private addStage(): void {
         this.addBgImg();
         this.addChild(this.player);
         this.addChild(this.text);
+        this.addChild(this.Gameobject);
         this._run();
     }
 
@@ -41,6 +44,7 @@ class GameScene extends egret.DisplayObjectContainer {
     }
 
     private update(timeStamp: number): boolean {
+        this.distance = (this.player.x-this.Gameobject.x) * (this.player.x-this.Gameobject.x) + (this.player.y-this.Gameobject.y) * (this.player.y-this.Gameobject.y);
         this.player.x +=
             6*this.player.SpeedX * this.T +
             2*this.player.accelerationX * this.T * this.T;
@@ -79,7 +83,22 @@ class GameScene extends egret.DisplayObjectContainer {
             "\n" +
             "sccelerationy = " +
             this.player.accelerationY +
+            "\n" +
+            "X = " +
+            this.Gameobject.x +
+            "\n" +
+            "Y = " +
+            this.Gameobject.y +
+            "\n" +
+            "distance = " + 
+            this.distance + 
             "\n";
+        if(this.distance <= 6400)
+        {
+            this.removeChild(this.Gameobject);
+            this.Gameobject = new Gameobject(Math.round(Math.random()*640), Math.round(Math.random()*1036));
+            this.addChild(this.Gameobject);
+        }
         return true;
     }
 
