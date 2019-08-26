@@ -1,6 +1,7 @@
 class Player extends egret.Sprite {
     public x: number;
     public y: number;
+    public radius: number;
     private speedX: number;
     private speedY: number;
     public accelerationX: number;
@@ -14,12 +15,13 @@ class Player extends egret.Sprite {
         this.speedY = 0;
         this.accelerationX = 0;
         this.accelerationY = 0;
+        this.radius = 50;
         this.init();
     }
 
     private init(): void {
         this.graphics.beginFill(0xff0000);
-        this.graphics.drawCircle(0, 0, 50);
+        this.graphics.drawCircle(0, 0, this.radius);
         this.graphics.endFill();
     }
 

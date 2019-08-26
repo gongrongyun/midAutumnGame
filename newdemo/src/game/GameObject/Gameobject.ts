@@ -1,16 +1,16 @@
-class Gameobject extends egret.Sprite {
+class GameObject extends egret.Sprite {
     public x: number;
     public y: number;
-    constructor(x: number, y: number) {
+    public radius: number;
+    public type: string;
+
+    constructor() {
         super();
-        this.x = x;
-        this.y = y;
-        this.init();
     }
 
-    private init(): void {
-        this.graphics.beginFill(0xffff00);
-        this.graphics.drawCircle(0, 0, 30);
-        this.graphics.endFill();
+    public destory(): void {
+        if (this && this.parent) {
+            this.parent.removeChild(this);
+        }
     }
 }
