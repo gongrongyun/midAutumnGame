@@ -15,6 +15,7 @@
 		"bin-debug/game/Param.js",
 		"bin-debug/Main.js",
 		"bin-debug/game/Start.js",
+		"bin-debug/game/GameObject/Gameobject.js",
 		"bin-debug/game/GameObject/Mooncake.js",
 		"bin-debug/game/GameObject/Player.js",
 		"bin-debug/game/Scene/GameScene.js",
