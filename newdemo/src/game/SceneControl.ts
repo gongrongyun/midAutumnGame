@@ -5,12 +5,15 @@ class SceneControl extends egret.Sprite {
 
     private OpenScene: OpenScene;
 
+    private MenuScene: MenuScene;
+
     private currentScene: egret.DisplayObjectContainer;
 
     constructor() {
         super();
         this.GameScene = new GameScene();
         this.OpenScene = new OpenScene();
+        this.MenuScene = new MenuScene();
     }
 
     public static get init(): SceneControl {
@@ -29,13 +32,18 @@ class SceneControl extends egret.Sprite {
         this.currentScene.addChild(this.GameScene);
     }
 
+    public setMenuScene(): void {
+        this.currentScene.removeChildren();
+        this.currentScene.addChild(this.MenuScene);
+    }
+
     public setOpenScene(): void {
         this.currentScene.removeChildren();
         this.currentScene.addChild(this.OpenScene);
         egret.Tween.get(this.currentScene)
             .wait(2000)
             .call(() => {
-                this.setGameScene();
+                this.setMenuScene();
             });
     }
 }

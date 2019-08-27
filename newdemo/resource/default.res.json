@@ -1,7 +1,7 @@
 {
     "groups": [
         {
-            "keys": "bg_jpg,egret_icon_png,description_json,qkteam_png",
+            "keys": "bg_jpg,egret_icon_png,description_json,qkteam_png,startUp_png,startDown_png,menuUp_png,menuDown_png,exitUp_png,exitDown_png",
             "name": "preload"
         }
     ],
@@ -25,6 +25,36 @@
             "name": "description_json",
             "type": "json",
             "url": "config/description.json"
+        },
+        {
+            "name": "startUp_png",
+            "type": "image",
+            "url": "assets/startUp.png"
+        },
+        {
+            "name": "startDown_png",
+            "type": "image",
+            "url": "assets/startDown.png"
+        },
+        {
+            "name": "menuUp_png",
+            "type": "image",
+            "url": "assets/menuUp.png"
+        },
+        {
+            "name": "menuDown_png",
+            "type": "image",
+            "url": "assets/menuDown.png"
+        },
+        {
+            "name": "exitUp_png",
+            "type": "image",
+            "url": "assets/exitUp.png"
+        },
+        {
+            "name": "exitDown_png",
+            "type": "image",
+            "url": "assets/exitDown.png"
         }
     ]
 }
