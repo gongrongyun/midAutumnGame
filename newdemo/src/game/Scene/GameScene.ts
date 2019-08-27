@@ -98,14 +98,14 @@ class GameScene extends egret.DisplayObjectContainer {
 
     private roleMove(): void {
         this.player.x +=
-            6 * this.player.SpeedX * this.T +
-            2 * this.player.accelerationX * this.T * this.T;
+            20 * this.player.SpeedX * this.T +
+            10 * this.player.accelerationX * this.T * this.T;
         this.player.y +=
-            6 * this.player.SpeedY * this.T +
-            2 * this.player.accelerationY * this.T * this.T;
+            20 * this.player.SpeedY * this.T +
+            10 * this.player.accelerationY * this.T * this.T;
         Help.BorderCollision(this.player);
-        this.player.SpeedX = this.player.accelerationX * this.T * 2;
-        this.player.SpeedY = this.player.accelerationY * this.T * 2;
+        this.player.SpeedX = this.player.accelerationX * this.T * 1;
+        this.player.SpeedY = this.player.accelerationY * this.T * 1;
     }
 
     private onMotion(e: egret.OrientationEvent): void {

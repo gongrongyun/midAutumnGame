@@ -2,8 +2,8 @@ class Player extends egret.Sprite {
     public x: number;
     public y: number;
     public radius: number;
-    private speedX: number;
-    private speedY: number;
+    public speedX: number;
+    public speedY: number;
     public accelerationX: number;
     public accelerationY: number;
 
