@@ -10,7 +10,7 @@ class MoonCake extends GameObject {
 
     private init(): void {
         this.graphics.beginFill(0xffff00, 1);
-        this.graphics.drawCircle(this.x, this.y, this.radius);
+        this.graphics.drawCircle(0, 0, this.radius);
         this.graphics.endFill();
     }
 }
