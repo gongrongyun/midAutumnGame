@@ -16,7 +16,7 @@
 		"bin-debug/game/SceneControl.js",
 		"bin-debug/Main.js",
 		"bin-debug/LoadingUI.js",
-		"bin-debug/game/GameObject/MoonCake.js",
+		"bin-debug/game/GameObject/Mooncake.js",
 		"bin-debug/game/GameObject/Player.js",
 		"bin-debug/game/Scene/GameScene.js",
 		"bin-debug/game/Scene/MenuScene.js",

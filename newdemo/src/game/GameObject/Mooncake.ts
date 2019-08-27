@@ -4,7 +4,7 @@ class MoonCake extends GameObject {
         this.x = x;
         this.y = y;
         this.type = "cake";
-        this.radius = 25;
+        this.radius = Param.CakeRadius;
         this.init();
     }
 
