@@ -12,11 +12,11 @@ class Help {
         }
     }
 
-    public static CircleCollision(player: Player, obj: GameObject): boolean {
-        const distance = Math.sqrt(
-            (player.x - obj.x) ^ (2 + (player.y - obj.y)) ^ 2
+    public static CircleCollision(playerx: number, playery: number, playerradius: number, objx: number, objy: number, objradius: number): boolean {
+        const distance = 
+            (playerx - objx) ^ 2 +(playery - objy) ^ 2
         );
-        if (player.radius + obj.radius <= distance) {
+        if ((playerradius + objradius)^2 <= distance) {
             return false;
         }
         return true;
