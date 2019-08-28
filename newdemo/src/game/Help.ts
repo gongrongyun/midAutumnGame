@@ -33,15 +33,19 @@ class Help {
     public static BorderCollision(player: Player): void {
         if (player.x < player.radius) {
             player.x = player.radius;
+            player.speedX=0;
         }
         if (player.y < player.radius) {
             player.y = player.radius;
+            player.speedY=0;
         }
         if (player.y > Param.StageHeight - player.radius) {
             player.y = Param.StageHeight - player.radius;
+            player.speedY=0;
         }
         if (player.x > Param.StageWidth - player.radius) {
             player.x = Param.StageWidth - player.radius;
+            player.speedX=0;
         }
     }
 }
