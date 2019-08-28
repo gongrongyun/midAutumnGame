@@ -1,7 +1,7 @@
 class OpenScene extends egret.DisplayObjectContainer {
     private bg: egret.Shape;
     private logo: egret.Bitmap;
-    private text: egret.TextField;
+    private author: egret.TextField;
 
     constructor() {
         super();
@@ -10,24 +10,24 @@ class OpenScene extends egret.DisplayObjectContainer {
         this.height = Param.StageHeight;
         this.bg = new egret.Shape();
         this.logo = Help.createBitmapByName("qkteam_png");
-        this.text = new egret.TextField();
+        this.author = new egret.TextField();
     }
 
     public start(): void {
         this.addBackground();
         this.addLogo();
-        this.addText();
+        this.addAuthor();
         const logoTw: egret.Tween = egret.Tween.get(this.logo);
         logoTw.to({ alpha: 0 }, 2000);
-        const textTw: egret.Tween = egret.Tween.get(this.text);
+        const textTw: egret.Tween = egret.Tween.get(this.author);
         textTw.to({ alpha: 0 }, 2000);
     }
 
     private addLogo(): void {
-        this.logo.x = this.width / 2 - 100;
+        this.logo.x = this.width / 2 - 250;
         this.logo.y = 400;
-        this.logo.width = 200;
-        this.logo.height = 200;
+        this.logo.width = 500;
+        this.logo.height = 500;
         this.addChild(this.logo);
     }
 
@@ -38,13 +38,14 @@ class OpenScene extends egret.DisplayObjectContainer {
         this.addChild(this.bg);
     }
 
-    private addText(): void {
-        this.text.text = "晴空工作室";
-        this.text.size = 50;
-        this.text.width = 250;
-        this.text.height = 100;
-        this.text.y = 650;
-        this.text.x = this.width / 2 - 125;
-        this.addChild(this.text);
+    private addAuthor(): void {
+        this.author.text = "晴空工作室";
+        this.author.size = 80;
+        this.author.textColor = 0xffffee;
+        this.author.width = 400;
+        this.author.height = 80;
+        this.author.y = 1150;
+        this.author.x = this.width / 2 - 200;
+        this.addChild(this.author);
     }
 }

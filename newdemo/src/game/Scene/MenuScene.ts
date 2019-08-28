@@ -21,21 +21,21 @@ class MenuScene extends egret.DisplayObjectContainer {
 
         this.addButton(
             this.startButton,
-            400,
+            600,
             "startUp_png",
             "startDown_png",
             this.clickStart
         );
         this.addButton(
             this.menuButton,
-            550,
+            950,
             "menuUp_png",
             "menuDown_png",
             this.clickMenu
         );
         this.addButton(
             this.exitButton,
-            700,
+            1300,
             "exitUp_png",
             "exitDown_png",
             this.clickExit
@@ -62,17 +62,15 @@ class MenuScene extends egret.DisplayObjectContainer {
         down: string,
         clickDown: Function
     ): void {
-        button.x = Param.StageWidth / 2 - 150;
+        button.x = Param.StageWidth / 2 - 300;
         button.y = y;
-        button.width = 300;
-        button.height = 100;
+        button.width = 600;
+        button.height = 300;
         button.touchEnabled = true;
         button.addEventListener(
             egret.TouchEvent.TOUCH_BEGIN,
             () => {
                 button.texture = RES.getRes(down);
-                // button.x += 10;
-                // button.y += 5;
             },
             this
         );
@@ -80,8 +78,6 @@ class MenuScene extends egret.DisplayObjectContainer {
             egret.TouchEvent.TOUCH_TAP,
             () => {
                 button.texture = RES.getRes(up);
-                // button.x -= 10;
-                // button.y -= 5;
                 clickDown();
             },
             this
@@ -90,8 +86,6 @@ class MenuScene extends egret.DisplayObjectContainer {
             egret.TouchEvent.TOUCH_RELEASE_OUTSIDE,
             () => {
                 button.texture = RES.getRes(up);
-                // button.x -= 10;
-                // button.y -= 5;
             },
             this
         );
