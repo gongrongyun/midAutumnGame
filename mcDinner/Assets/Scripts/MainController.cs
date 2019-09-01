@@ -21,8 +21,8 @@ public class MainController : MonoBehaviour
         this.isPause = false;
         screenHeight = Camera.main.orthographicSize * 2;
         screenWidth = screenHeight * Screen.width / Screen.height;
-        moonCakeRadius = _moonCake.GetComponent<Collider2D>().bounds.size.y / 2;
-
+        moonCakeRadius = _moonCake.GetComponent<SpriteRenderer>().size.y / 2;
+        Debug.Log(moonCakeRadius);
         
     }
 
@@ -38,13 +38,12 @@ public class MainController : MonoBehaviour
         this.player = Instantiate(_player);
         if (isGaming)
         {
-            Invoke("Spawn", 2);
+            InvokeRepeating("Spawn", 2f, 2f);
         }
     }
 
     public void Spawn()
     {
-        Debug.Log("ok");
         Vector3 position = new Vector3(UnityEngine.Random.Range(-screenWidth / 2 + moonCakeRadius, screenWidth / 2 - moonCakeRadius),
             UnityEngine.Random.Range(-screenHeight / 2 + moonCakeRadius, screenHeight / 2 - moonCakeRadius), 0);
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
