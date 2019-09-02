@@ -12,7 +12,6 @@ public class MainController : MonoBehaviour
     public Player _player;
     public GameObject _moonCake;
     private Player player;
-    private GameObject moonCake;
     private bool isPause;
     private float moonCakeRadius;
 
@@ -23,7 +22,6 @@ public class MainController : MonoBehaviour
         screenHeight = Camera.main.orthographicSize * 2;
         screenWidth = screenHeight * Screen.width / Screen.height;
         moonCakeRadius = _moonCake.GetComponent<SpriteRenderer>().size.y / 2;
-        Debug.Log(moonCakeRadius);
         sum = 0;
     }
 
@@ -49,8 +47,7 @@ public class MainController : MonoBehaviour
             UnityEngine.Random.Range(-screenHeight / 2 + moonCakeRadius, screenHeight / 2 - moonCakeRadius), 0);
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
         {
-            _moonCake.transform.position = position;
-            Instantiate(_moonCake, _moonCake.transform);
+            Instantiate(_moonCake, position, Quaternion.identity);
         }
         else Spawn();
     }
@@ -63,5 +60,10 @@ public class MainController : MonoBehaviour
             Spawn();
             sum++;
         }
+    }
+
+    public void Exit()
+    {
+        Application.Quit();
     }
 }   

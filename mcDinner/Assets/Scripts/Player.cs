@@ -5,6 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public Player player;
+    public static int quality;
+    public static int score;
     private Rigidbody2D rig;
     private float acceleration;
     private float horizontal;
@@ -15,6 +17,8 @@ public class Player : MonoBehaviour
     void Start()
     {
         acceleration = 1f;
+        quality = 60;
+        score = 0;
         rig = GetComponent<Rigidbody2D>();
         radius = GetComponent<Collider2D>().bounds.size.y / 2;
     }
@@ -22,10 +26,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        //horizontal = Input.acceleration.x;
-        //vertical = Input.acceleration.y;
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.acceleration.x;
+        vertical = Input.acceleration.y;
+        //horizontal = Input.GetAxisRaw("Horizontal");
+        //vertical = Input.GetAxisRaw("Vertical");
         rig.velocity = new Vector2(rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration, 
             rig.velocity.y + vertical * Time.fixedDeltaTime * acceleration);
         if (rig.position.x + radius > MainController.screenWidth / 2)
@@ -52,11 +56,16 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("balabala");
         if (collision.gameObject.tag == "MoonCake")
         {
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject, 1f);
+            quality += 10;
+            if (quality > 100)
+            {
+                quality = 100;
+            }
+            score += 10;
             MainController.sum--;
         }
     }
