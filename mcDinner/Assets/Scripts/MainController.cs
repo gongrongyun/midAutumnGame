@@ -8,6 +8,7 @@ public class MainController : MonoBehaviour
     static bool isGaming;
     public static float screenWidth;
     public static float screenHeight;
+    public static int sum;
     public Player _player;
     public GameObject _moonCake;
     private Player player;
@@ -15,7 +16,7 @@ public class MainController : MonoBehaviour
     private bool isPause;
     private float moonCakeRadius;
 
-    void Start()
+     void Start()
     {
         isGaming = false;
         this.isPause = false;
@@ -23,7 +24,7 @@ public class MainController : MonoBehaviour
         screenWidth = screenHeight * Screen.width / Screen.height;
         moonCakeRadius = _moonCake.GetComponent<SpriteRenderer>().size.y / 2;
         Debug.Log(moonCakeRadius);
-        
+        sum = 0;
     }
 
     // Update is called once per frame
@@ -38,7 +39,7 @@ public class MainController : MonoBehaviour
         this.player = Instantiate(_player);
         if (isGaming)
         {
-            InvokeRepeating("Spawn", 2f, 2f);
+            InvokeRepeating("Count", 2f, 2f);
         }
     }
 
@@ -51,5 +52,16 @@ public class MainController : MonoBehaviour
             _moonCake.transform.position = position;
             Instantiate(_moonCake, _moonCake.transform);
         }
+        else Spawn();
     }
-}
+    public void Count()
+    {
+        System.Random ran = new System.Random();
+        int total = ran.Next(3, 7);
+        while (sum < total)
+        {
+            Spawn();
+            sum++;
+        }
+    }
+}   
