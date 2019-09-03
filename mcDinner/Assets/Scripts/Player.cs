@@ -26,11 +26,19 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        horizontal = Input.acceleration.x;
-        vertical = Input.acceleration.y;
-        //horizontal = Input.GetAxisRaw("Horizontal");
-        //vertical = Input.GetAxisRaw("Vertical");
-        rig.velocity = new Vector2(rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration, 
+        if (MainController.isGaming)
+        {
+            Move();
+        }
+    }
+
+    private void Move()
+    {
+        //horizontal = Input.acceleration.x;
+        //vertical = Input.acceleration.y;
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        rig.velocity = new Vector2(rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration,
             rig.velocity.y + vertical * Time.fixedDeltaTime * acceleration);
         if (rig.position.x + radius > MainController.screenWidth / 2)
         {
@@ -67,6 +75,12 @@ public class Player : MonoBehaviour
             }
             score += 10;
             MainController.sum--;
+        }
+        if (collision.gameObject.tag == "Bomb")
+        {
+            MainController.isGaming = false;
+            Destroy(collision.gameObject, 1f);
+            rig.velocity = new Vector2(0, 0);
         }
     }
 }
