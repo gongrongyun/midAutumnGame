@@ -78,9 +78,35 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bomb")
         {
-            MainController.isGaming = false;
+            quality -= 50;
+            if(quality <= 0)
+                MainController.isGaming = false;
             Destroy(collision.gameObject, 1f);
             rig.velocity = new Vector2(0, 0);
+        }
+        if (collision.gameObject.tag == "MoonCake2")
+        {
+            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject, 1f);
+            quality += 10;
+            if (quality > 100)
+            {
+                quality = 100;
+            }
+            score += 10;
+            MainController.sum--;
+        }
+        if (collision.gameObject.tag == "MoonCake3")
+        {
+            collision.gameObject.SetActive(false);
+            Destroy(collision.gameObject, 1f);
+            quality += 10;
+            if (quality > 100)
+            {
+                quality = 100;
+            }
+            score += 10;
+            MainController.sum--;
         }
     }
 }

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1720808177889553191}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8928252482898847736}
-  mainController: {fileID: 0}
 --- !u!58 &8928252482898847737
 CircleCollider2D:
   m_ObjectHideFlags: 0
