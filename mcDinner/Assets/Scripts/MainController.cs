@@ -13,6 +13,8 @@ public class MainController : MonoBehaviour
     public static int sum;
     public Player _player;
     public GameObject _moonCake;
+    public GameObject _moonCake2;
+    public GameObject _moonCake3;
     public GameObject _bomb;
     public GameObject MainMenu;
     public GameObject GameUI;
@@ -102,17 +104,22 @@ public class MainController : MonoBehaviour
             UnityEngine.Random.Range(-screenHeight / 2 + moonCakeRadius, screenHeight / 2 - moonCakeRadius), 0);
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
         {
-            if (new System.Random().Next(0, 10) > 3)
+            int random = new System.Random().Next(0, 10);
+            if (random > 6)
                 Instantiate(_moonCake, position, Quaternion.identity);
-            else
+            else if(random < 7&&random >4)
                 Instantiate(_bomb, position, Quaternion.identity);
+            else if (random <5&&random>2)
+                Instantiate(_moonCake2, position, Quaternion.identity);
+            else if (random <3&&random>-1)
+                Instantiate(_moonCake3, position, Quaternion.identity);
         }
         else Spawn();
     }
     public void Count()
     {
         System.Random ran = new System.Random();
-        int total = ran.Next(3, 7);
+        int total = ran.Next(3, 8);
         while (sum < total)
         {
             Spawn();
