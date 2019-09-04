@@ -20,9 +20,9 @@ public class button : MonoBehaviour
             if (Physics.Raycast(ray,out hitInfo) ){
                 //如果是一根手指触摸屏幕而且是刚开始触摸屏幕 					
                 if (Input.touchCount==1&&Input.GetTouch(0).phase==TouchPhase.Began){
-                    if (Input.GetTouch(0).tapCount==1){//判断点击的次数						
+					
                         Destroy (hitInfo.collider.gameObject);//销毁场景中的模型					
-                    }
+
                 }
             }		}	
 
