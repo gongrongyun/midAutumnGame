@@ -39,9 +39,19 @@ public class MainController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startGame && !isGaming)
+        if (startGame)
         {
-            EndGame();
+            if (isGaming)
+            {
+                if (Input.GetMouseButton(0))
+                    Player.acceleration = 2f;
+                else
+                    Player.acceleration = 0.5f;
+            }
+            else
+            {
+                EndGame();
+            }
         }
     }
 
@@ -52,7 +62,15 @@ public class MainController : MonoBehaviour
         player = Instantiate(_player, new Vector3(0, 0, 0), Quaternion.identity);
         InvokeRepeating("Count", 2f, 2f);
     }
-
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void ContinueGame()
+    {
+        isGaming = true;
+        Time.timeScale = 1;
+    }
     public void ReStart()
     {
         StartCoroutine(LoadScene());
