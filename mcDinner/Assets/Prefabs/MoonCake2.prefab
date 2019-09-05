@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 8542600963773007269}
   - component: {fileID: 8110853598857257527}
   m_Layer: 0
-  m_Name: Mooncake2
-  m_TagString: Mooncake2
+  m_Name: MoonCake2
+  m_TagString: MoonCake2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7164458544574405752}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.1837, y: 0.5631, z: 0.07910156}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.8}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

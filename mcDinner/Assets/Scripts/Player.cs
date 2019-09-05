@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "MoonCake2")
         {
+            Debug.Log("2");
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject, 1f);
             quality += 10;
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "MoonCake3")
         {
+            Debug.Log("3");
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject, 1f);
             quality += 10;
