@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
     public Player player;
     public static int quality;
     public static int score;
+    public static float acceleration;
     private Rigidbody2D rig;
-    private float acceleration;
     private float horizontal;
     private float vertical;
     private float radius;
@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        acceleration = 1f;
+        acceleration = 0.5f;
         quality = 60;
         score = 0;
         rig = GetComponent<Rigidbody2D>();
