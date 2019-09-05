@@ -89,7 +89,6 @@ public class MainController : MonoBehaviour
             MainMenu.SetActive(false);
             GameUI.SetActive(true);
             StartGame();
-            Debug.Log("as");
         }
     }
 
@@ -119,7 +118,7 @@ public class MainController : MonoBehaviour
     public void Spawn()
     {
         Vector3 position = new Vector3(UnityEngine.Random.Range(-screenWidth / 2 + moonCakeRadius, screenWidth / 2 - moonCakeRadius),
-            UnityEngine.Random.Range(-screenHeight / 2 + moonCakeRadius, screenHeight / 2 - moonCakeRadius), 0);
+            UnityEngine.Random.Range(-screenHeight / 2 + moonCakeRadius, 0.85f * screenHeight / 2 - moonCakeRadius), 0);
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
         {
             int random = new System.Random().Next(0, 10);

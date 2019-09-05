@@ -34,10 +34,10 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        //horizontal = Input.acceleration.x;
-        //vertical = Input.acceleration.y;
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.acceleration.x;
+        vertical = Input.acceleration.y;
+        //horizontal = Input.GetAxisRaw("Horizontal");
+        //vertical = Input.GetAxisRaw("Vertical");
         rig.velocity = new Vector2(rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration,
             rig.velocity.y + vertical * Time.fixedDeltaTime * acceleration);
         if (rig.position.x + radius > MainController.screenWidth / 2)
@@ -50,9 +50,9 @@ public class Player : MonoBehaviour
             rig.position = new Vector2(-MainController.screenWidth / 2 + radius, rig.position.y);
             rig.velocity = new Vector2(-rig.velocity.x * 0.5f, rig.velocity.y);
         }
-        if (rig.position.y + radius > MainController.screenHeight / 2)
+        if (rig.position.y + radius > 0.85f * MainController.screenHeight / 2)
         {
-            rig.position = new Vector2(rig.position.x, MainController.screenHeight / 2 - radius);
+            rig.position = new Vector2(rig.position.x, 0.85f * MainController.screenHeight / 2 - radius);
             rig.velocity = new Vector2(rig.velocity.x, -rig.velocity.y * 0.5f);
         }
         if (rig.position.y - radius < -MainController.screenHeight / 2)
