@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,6 +9,7 @@ public class MainController : MonoBehaviour
     public static float screenWidth;
     public static float screenHeight;
     public static int sum;
+    public static bool mute;
     public Player _player;
     public GameObject _moonCake;
     public GameObject _moonCake2;
