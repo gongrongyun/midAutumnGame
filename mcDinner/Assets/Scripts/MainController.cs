@@ -56,6 +56,7 @@ public class MainController : MonoBehaviour
 
     public void StartGame()
     {
+        Record.LoadMute();
         startGame = true;
         isGaming = true;
         player = Instantiate(_player, new Vector3(0, 0, 0), Quaternion.identity);
@@ -112,6 +113,7 @@ public class MainController : MonoBehaviour
         GameOverScore.text = "" + Player.score;
         GameOverUI.SetActive(true);
         startGame = false;
+        Record.SaveScore();
     }
 
     public void Spawn()
@@ -152,7 +154,16 @@ public class MainController : MonoBehaviour
     {
         sum--;
     }
-
+    public void MuteOn()
+    {
+        mute = true;
+        Record.SaveMute();
+    }
+    public void MuteOff()
+    {
+        mute = false;
+        Record.SaveMute();
+    }
     public void Exit()
     {
         Application.Quit();
