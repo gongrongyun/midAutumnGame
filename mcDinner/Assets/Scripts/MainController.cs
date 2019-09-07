@@ -56,6 +56,7 @@ public class MainController : MonoBehaviour
 
     public void StartGame()
     {
+        Record.LoadMute();
         startGame = true;
         isGaming = true;
         player = Instantiate(_player, new Vector3(0, 0, 0), Quaternion.identity);
@@ -112,6 +113,7 @@ public class MainController : MonoBehaviour
         GameOverScore.text = "" + Player.score;
         GameOverUI.SetActive(true);
         startGame = false;
+        Record.SaveScore();
     }
 
     public void Spawn()
@@ -120,15 +122,21 @@ public class MainController : MonoBehaviour
             UnityEngine.Random.Range(-screenHeight / 2 + moonCakeRadius, 0.85f * screenHeight / 2 - moonCakeRadius), 0);
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
         {
-            int random = new System.Random().Next(0, 10);
-            if (random > 6)
+            int random = UnityEngine.Random.Range(0, 10);
+            Debug.Log(random);
+            GameObject gameObject = new GameObject();
+            if (random > 4)
                 Instantiate(_moonCake, position, Quaternion.identity);
-            else if(random < 7&&random >4)
-                Instantiate(_bomb, position, Quaternion.identity);
-            else if (random <5&&random>2)
+            else if (random == 2)
                 Instantiate(_moonCake2, position, Quaternion.identity);
-            else if (random <3&&random>-1)
+            else if (random == 1)
                 Instantiate(_moonCake3, position, Quaternion.identity);
+            else
+            {
+                gameObject = Instantiate(_bomb, position, Quaternion.identity);
+                Destroy(gameObject, 6f);
+                Invoke("sub", 6f);
+            }
         }
         else Spawn();
     }
@@ -142,7 +150,20 @@ public class MainController : MonoBehaviour
             sum++;
         }
     }
-
+    public void sub()
+    {
+        sum--;
+    }
+    public void MuteOn()
+    {
+        mute = true;
+        Record.SaveMute();
+    }
+    public void MuteOff()
+    {
+        mute = false;
+        Record.SaveMute();
+    }
     public void Exit()
     {
         Application.Quit();
