@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour
     private float horizontal;
     private float vertical;
     private float radius;
+    Stack<string> cakes = new Stack<string>();
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +68,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "MoonCake")
         {
+            Combo(cakes, "1");
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject, 1f);
             quality += 10;
@@ -78,6 +81,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bomb")
         {
+            cakes.Clear();
             quality -= 50;
             if(quality <= 0)
                 MainController.isGaming = false;
@@ -86,7 +90,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "MoonCake2")
         {
-            Debug.Log("2");
+            Combo(cakes, "2");
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject, 1f);
             quality += 10;
@@ -99,7 +103,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "MoonCake3")
         {
-            Debug.Log("3");
+            Combo(cakes, "3");
             collision.gameObject.SetActive(false);
             Destroy(collision.gameObject, 1f);
             quality += 10;
@@ -109,6 +113,23 @@ public class Player : MonoBehaviour
             }
             score += 10;
             MainController.sum--;
+        }
+    }
+    private void Combo(Stack<string> numbers, string num)
+    {
+        Debug.Log(numbers.Count);
+        if (cakes.Count == 0)
+            cakes.Push(num);
+        else if ((string)numbers.Peek() == num)
+            numbers.Push(num);
+        else
+        {
+            numbers.Clear();
+            numbers.Push(num);
+        }
+        if(numbers.Count >= 3)
+        {
+            score += 20;
         }
     }
 }

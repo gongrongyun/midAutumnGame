@@ -123,7 +123,6 @@ public class MainController : MonoBehaviour
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
         {
             int random = UnityEngine.Random.Range(0, 10);
-            Debug.Log(random);
             GameObject gameObject = new GameObject();
             if (random > 4)
                 Instantiate(_moonCake, position, Quaternion.identity);
