@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8928252482898847736}
+  ComboCount: {fileID: 8762800685677505459, guid: facdc3480c7a85c45876d24d154ac98c,
+    type: 3}
 --- !u!58 &8928252482898847737
 CircleCollider2D:
   m_ObjectHideFlags: 0

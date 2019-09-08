@@ -1,43 +1,28 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
-public class ComboController : MonoBehaviour
+using UnityEngine.UI;
+public class ComboController : MonoBehaviour 
 {
-
-
-    private float tempTime;
-    void Start()
+    private static float tempTime;
+     void Start()
     {
+        Debug.Log("?");
         tempTime = 0;
-
-
-        this.GetComponent<Renderer>().material.color = new Color
-        (
-                this.GetComponent<Renderer>().material.color.r,
-                this.GetComponent<Renderer>().material.color.g,
-                this.GetComponent<Renderer>().material.color.b, 
-                this.GetComponent<Renderer>().material.color.a
-        );
-    }
-    void Update()
-    {
         if (tempTime < 1)
         {
             tempTime = tempTime + Time.deltaTime;
         }
-        if (this.GetComponent<Renderer>().material.color.a <= 1)
+        if (gameObject.GetComponent<Renderer>().sharedMaterial.color.a <= 1)
         {
-            this.GetComponent<Renderer>().material.color = new Color
+            gameObject.GetComponent<Renderer>().sharedMaterial.color = new Color
             (
-                this.GetComponent<Renderer>().material.color.r,
-                this.GetComponent<Renderer>().material.color.g,
-                this.GetComponent<Renderer>().material.color.b,
-                gameObject.GetComponent<Renderer>().material.color.a - tempTime / 2 * Time.deltaTime
+                gameObject.GetComponent<Renderer>().sharedMaterial.color.r,
+                gameObject.GetComponent<Renderer>().sharedMaterial.color.g,
+                gameObject.GetComponent<Renderer>().sharedMaterial.color.b,
+                gameObject.GetComponent<Renderer>().sharedMaterial.color.a - tempTime / 2 * Time.deltaTime
             );
         }
-        Destroy(this.gameObject, 2.0f);//40秒后消除
-    }
+        Destroy(gameObject,2.0f);
+    }  
 }
