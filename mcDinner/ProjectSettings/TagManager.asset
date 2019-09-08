@@ -8,7 +8,6 @@ TagManager:
   - Bomb
   - MoonCake2
   - MoonCake3
-  - Combo
   layers:
   - Default
   - TransparentFX
