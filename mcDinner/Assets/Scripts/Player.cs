@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public Player player;
+    public Text ComboCount;
     public static int quality;
     public static int score;
     public static float acceleration;
@@ -118,8 +120,8 @@ public class Player : MonoBehaviour
     private void Combo(Stack<string> numbers, string num)
     {
         Debug.Log(numbers.Count);
-        if (cakes.Count == 0)
-            cakes.Push(num);
+        if (numbers.Count == 0)
+            numbers.Push(num);
         else if ((string)numbers.Peek() == num)
             numbers.Push(num);
         else
@@ -129,6 +131,9 @@ public class Player : MonoBehaviour
         }
         if(numbers.Count >= 3)
         {
+            Vector3 position = new Vector3(0,650,0);
+            Text _Combo = Instantiate(ComboCount, position, Quaternion.identity);
+            _Combo.text = "x" + "  " + numbers.Count;
             score += 20;
         }
     }
