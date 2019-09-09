@@ -39,7 +39,8 @@ public class GameUIController : MonoBehaviour
         if (cakes.Count >= 3)
         {
             Player.score += 20;
-            Text _Combo = Instantiate(combo, new Vector3(0, 0, 0), Quaternion.identity);
+            Text _Combo = Instantiate(combo, new Vector3(0, 650, 0), Quaternion.identity);
+            _Combo.text = "x" + "  " + cakes.Count;
             _Combo.transform.SetParent(gameUI.transform, false);
             Destroy(_Combo, 3f);
         }
