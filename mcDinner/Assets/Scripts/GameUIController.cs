@@ -7,6 +7,7 @@ public class GameUIController : MonoBehaviour
 {
     public Canvas GameUI;
     public Text _combo;
+    public Text quality;
     public static Text combo;
     public static Canvas gameUI;
 
@@ -17,11 +18,13 @@ public class GameUIController : MonoBehaviour
         combo = _combo;
         gameUI = GameUI;
         GetComponentInChildren<Slider>().value = 60;
+        quality.text = "" + Player.quality;
     }
     
     void Update()
     {
         GetComponentInChildren<Slider>().value = Player.quality;
+        quality.text = "" + Player.quality;
         GetComponentInChildren<Text>().text = "" + Player.score;
     }
 

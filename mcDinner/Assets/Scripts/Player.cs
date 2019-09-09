@@ -70,9 +70,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake")
         {
             GameUIController.Combo("1");
-            collision.gameObject.SetActive(false);
-            Destroy(collision.gameObject, 1f);
-            quality += 10;
+            Destroy(collision.gameObject);
+            quality += 5;
             if (quality > 100)
             {
                 quality = 100;
@@ -83,17 +82,16 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Bomb")
         {
             GameUIController.cakes.Clear();
-            quality -= 50;
+            quality -= 60;
             if(quality <= 0)
                 MainController.isGaming = false;
-            Destroy(collision.gameObject, 1f);
+            Destroy(collision.gameObject);
             rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "MoonCake2")
         {
             GameUIController.Combo("2");
-            collision.gameObject.SetActive(false);
-            Destroy(collision.gameObject, 1f);
+            Destroy(collision.gameObject);
             quality += 10;
             if (quality > 100)
             {
@@ -105,9 +103,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake3")
         {
             GameUIController.Combo("3");
-            collision.gameObject.SetActive(false);
-            Destroy(collision.gameObject, 1f);
-            quality += 10;
+            Destroy(collision.gameObject);
+            quality += 15;
             if (quality > 100)
             {
                 quality = 100;
