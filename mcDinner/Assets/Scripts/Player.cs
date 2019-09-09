@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        //horizontal = Input.acceleration.x;
-        //vertical = Input.acceleration.y;
-        horizontal = Input.GetAxisRaw("Horizontal");
-        vertical = Input.GetAxisRaw("Vertical");
+        horizontal = Input.acceleration.x;
+        vertical = Input.acceleration.y;
+        //horizontal = Input.GetAxisRaw("Horizontal");
+        //vertical = Input.GetAxisRaw("Vertical");
         rig.velocity = new Vector2(rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration,
             rig.velocity.y + vertical * Time.fixedDeltaTime * acceleration);
         if (rig.position.x + radius > MainController.screenWidth / 2)
@@ -70,7 +70,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake")
         {
             GameUIController.Combo("1");
-            Destroy(collision.gameObject);
             quality += 5;
             if (quality > 100)
             {
@@ -85,13 +84,11 @@ public class Player : MonoBehaviour
             quality -= 60;
             if(quality <= 0)
                 MainController.isGaming = false;
-            Destroy(collision.gameObject);
             rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "MoonCake2")
         {
             GameUIController.Combo("2");
-            Destroy(collision.gameObject);
             quality += 10;
             if (quality > 100)
             {
@@ -103,7 +100,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake3")
         {
             GameUIController.Combo("3");
-            Destroy(collision.gameObject);
             quality += 15;
             if (quality > 100)
             {
@@ -112,6 +108,7 @@ public class Player : MonoBehaviour
             score += 10;
             MainController.sum--;
         }
+        Destroy(collision.gameObject);
     }
 
 }
