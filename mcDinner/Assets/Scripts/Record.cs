@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 public class Record : MonoBehaviour
 {
     public static int score = -1;
-    public static bool mute = true;
+    public static bool mute = false;
 
     public static void SaveScore()
     {
