@@ -33,6 +33,8 @@ public class MainController : MonoBehaviour
         screenWidth = screenHeight * Screen.width / Screen.height;
         moonCakeRadius = _moonCake.GetComponent<SpriteRenderer>().size.y / 2;
         sum = 0;
+        Record.LoadMute();
+        mute = Record.mute;
     }
 
     // Update is called once per frame
@@ -56,7 +58,6 @@ public class MainController : MonoBehaviour
 
     public void StartGame()
     {
-        Record.LoadMute();
         startGame = true;
         isGaming = true;
         player = Instantiate(_player, new Vector3(0, 0, 0), Quaternion.identity);
@@ -113,7 +114,8 @@ public class MainController : MonoBehaviour
         GameOverScore.text = "" + Player.score;
         GameOverUI.SetActive(true);
         startGame = false;
-        Record.SaveScore();
+        Record.LoadScore();
+        if (Player.score > Record.score) { Record.SaveScore(); }
     }
 
     public void Spawn()
@@ -152,16 +154,6 @@ public class MainController : MonoBehaviour
     public void sub()
     {
         sum--;
-    }
-    public void MuteOn()
-    {
-        mute = true;
-        Record.SaveMute();
-    }
-    public void MuteOff()
-    {
-        mute = false;
-        Record.SaveMute();
     }
     public void Exit()
     {

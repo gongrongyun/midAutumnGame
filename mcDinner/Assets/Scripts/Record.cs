@@ -61,6 +61,7 @@ public class Record : MonoBehaviour
         else
         {
             Debug.Log("error");
+            mute = true;
             return;
         }
 
