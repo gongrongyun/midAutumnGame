@@ -20,6 +20,8 @@ public class MainController : MonoBehaviour
     public GameObject GameOverUI;
     public Text GameOverTitle;
     public Text GameOverScore;
+    public AudioClip MenuAudio;
+    public AudioClip GameAudio;
 
     private Player player;
     private float moonCakeRadius;
@@ -35,6 +37,9 @@ public class MainController : MonoBehaviour
         sum = 0;
         Record.LoadMute();
         mute = Record.mute;
+        GetComponent<AudioSource>().clip = MenuAudio;
+        GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().mute = mute;
     }
 
     // Update is called once per frame
@@ -62,15 +67,19 @@ public class MainController : MonoBehaviour
         isGaming = true;
         player = Instantiate(_player, new Vector3(0, 0, 0), Quaternion.identity);
         InvokeRepeating("Count", 2f, 2f);
+        GetComponent<AudioSource>().clip = GameAudio;
+        GetComponent<AudioSource>().Play();
     }
     public void PauseGame()
     {
         Time.timeScale = 0;
+        GetComponent<AudioSource>().Stop();
     }
     public void ContinueGame()
     {
         isGaming = true;
         Time.timeScale = 1;
+        GetComponent<AudioSource>().Play();
     }
     public void ReStart()
     {
@@ -96,6 +105,8 @@ public class MainController : MonoBehaviour
     public void BackToMain()
     {
         SceneManager.LoadScene(1);
+        GetComponent<AudioSource>().clip = MenuAudio;
+        GetComponent<AudioSource>().Play();
     }
 
     private void EndGame()
