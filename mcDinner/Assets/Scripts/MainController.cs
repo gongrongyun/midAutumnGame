@@ -137,11 +137,11 @@ public class MainController : MonoBehaviour
         {
             int random = UnityEngine.Random.Range(0, 10);
             GameObject gameObject = new GameObject();
-            if (random > 4)
+            if (random > 7)
                 Instantiate(_moonCake, position, Quaternion.identity);
-            else if (random == 2)
+            else if (random > 4)
                 Instantiate(_moonCake2, position, Quaternion.identity);
-            else if (random == 1)
+            else if (random > 1)
                 Instantiate(_moonCake3, position, Quaternion.identity);
             else
             {
