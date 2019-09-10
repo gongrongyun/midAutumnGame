@@ -15,6 +15,8 @@ public class MainController : MonoBehaviour
     public GameObject _moonCake2;
     public GameObject _moonCake3;
     public GameObject _bomb;
+    public GameObject _fish;
+    public GameObject _banana;
     public GameObject MainMenu;
     public GameObject GameUI;
     public GameObject GameOverUI;
@@ -146,9 +148,24 @@ public class MainController : MonoBehaviour
                 Instantiate(_moonCake3, position, Quaternion.identity);
             else
             {
-                gameObject = Instantiate(_bomb, position, Quaternion.identity);
-                Destroy(gameObject, 6f);
-                Invoke("sub", 6f);
+                int rubbish_random = UnityEngine.Random.Range(0, 10);
+                if (rubbish_random > 8)
+                {
+                    Instantiate(_fish, position, Quaternion.identity);
+                    gameObject = Instantiate(_fish, position, Quaternion.identity);
+                }
+                else if (rubbish_random > 4)
+                {
+                    Instantiate(_banana, position, Quaternion.identity);
+                    gameObject = Instantiate(_banana, position, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(_bomb, position, Quaternion.identity);
+                    gameObject = Instantiate(_bomb, position, Quaternion.identity);
+                }
+                Destroy(gameObject, 10f);
+                Invoke("sub", 10f);
             }
         }
         else Spawn();
