@@ -73,13 +73,13 @@ public class MainController : MonoBehaviour
     public void PauseGame()
     {
         Time.timeScale = 0;
-        GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().Pause();
     }
     public void ContinueGame()
     {
         isGaming = true;
         Time.timeScale = 1;
-        GetComponent<AudioSource>().Play();
+        GetComponent<AudioSource>().UnPause();
     }
     public void ReStart()
     {
@@ -104,6 +104,7 @@ public class MainController : MonoBehaviour
 
     public void BackToMain()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(1);
         GetComponent<AudioSource>().clip = MenuAudio;
         GetComponent<AudioSource>().Play();
@@ -136,7 +137,7 @@ public class MainController : MonoBehaviour
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
         {
             int random = UnityEngine.Random.Range(0, 10);
-            GameObject gameObject = new GameObject();
+            GameObject gameObject;
             if (random > 7)
                 Instantiate(_moonCake, position, Quaternion.identity);
             else if (random > 4)

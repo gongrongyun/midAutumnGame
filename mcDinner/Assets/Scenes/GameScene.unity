@@ -621,8 +621,8 @@ MonoBehaviour:
   GameOverUI: {fileID: 912283794}
   GameOverTitle: {fileID: 257056230}
   GameOverScore: {fileID: 959018375}
-  MenuAudio: {fileID: 0}
-  GameAudio: {fileID: 0}
+  MenuAudio: {fileID: 8300000, guid: 0557e54b7352f564fa1a6e7436c0d3e5, type: 3}
+  GameAudio: {fileID: 8300000, guid: 16a2a9b5fbd26414a9b7ba61fcbda693, type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -10957,7 +10957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.54509807}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -16764,9 +16764,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33aac6cc63a51a14a91aa6e0c8a73d57, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameUI: {fileID: 0}
-  _combo: {fileID: 0}
-  quality: {fileID: 0}
+  GameUI: {fileID: 1348277854}
+  _combo: {fileID: 2299084919446739787, guid: a88982a35048dec44ab6b73d25fce383, type: 3}
+  quality: {fileID: 135746840}
 --- !u!1 &1395721999
 GameObject:
   m_ObjectHideFlags: 0

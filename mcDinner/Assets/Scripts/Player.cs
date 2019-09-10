@@ -37,10 +37,10 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        horizontal = Input.acceleration.x;
-        vertical = Input.acceleration.y;
-        //horizontal = Input.GetAxisRaw("Horizontal");
-        //vertical = Input.GetAxisRaw("Vertical");
+        //horizontal = Input.acceleration.x;
+        //vertical = Input.acceleration.y;
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
         rig.velocity = new Vector2(rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration,
             rig.velocity.y + vertical * Time.fixedDeltaTime * acceleration);
         if (rig.position.x + radius > MainController.screenWidth / 2)
