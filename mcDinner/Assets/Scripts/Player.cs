@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         acceleration = 0.5f;
-        quality = 60;
+        quality = 20;
         score = 0;
         rig = GetComponent<Rigidbody2D>();
         radius = GetComponent<Collider2D>().bounds.size.y / 2;
@@ -80,11 +80,33 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bomb")
         {
+            Debug.Log("error1");
             GameUIController.cakes.Clear();
             quality -= 60;
-            if(quality <= 0)
+            if (quality <= 0)
+                quality = 0;
                 MainController.isGaming = false;
             rig.velocity = new Vector2(0, 0);
+        }
+        if (collision.gameObject.tag == "Fish")
+        {
+            Debug.Log("error2");
+            GameUIController.cakes.Clear();
+            quality = 0;
+            if (quality <= 0)
+                quality = 0;
+                MainController.isGaming = false;
+                rig.velocity = new Vector2(0, 0);
+        }
+        if (collision.gameObject.tag == "Banana")
+        {
+            Debug.Log("error3");
+            GameUIController.cakes.Clear();
+            quality -= 60;
+            if (quality <= 0)
+                quality = 0;
+                MainController.isGaming = false;
+                rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "MoonCake2")
         {
@@ -100,7 +122,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake3")
         {
             GameUIController.Combo("3");
-            quality += 15;
+            quality += 10;
             if (quality > 100)
             {
                 quality = 100;

@@ -17,7 +17,7 @@ public class GameUIController : MonoBehaviour
     {
         combo = _combo;
         gameUI = GameUI;
-        GetComponentInChildren<Slider>().value = 60;
+        GetComponentInChildren<Slider>().value = 20;
         quality.text = "" + Player.quality;
     }
     
@@ -41,7 +41,7 @@ public class GameUIController : MonoBehaviour
         }
         if (cakes.Count >= 3)
         {
-            Player.score += 20;
+            Player.score += 35;
             Text _Combo = Instantiate(combo, new Vector3(0, 650, 0), Quaternion.identity);
             _Combo.text = "x" + "  " + cakes.Count;
             _Combo.transform.SetParent(gameUI.transform, false);

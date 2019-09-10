@@ -8,6 +8,8 @@ TagManager:
   - Bomb
   - MoonCake2
   - MoonCake3
+  - FIsh
+  - Banana
   layers:
   - Default
   - TransparentFX
