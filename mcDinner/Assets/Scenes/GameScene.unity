@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 35089958}
-  TotalTime: 5
+  TotalTime: 120
 --- !u!114 &35089961
 MonoBehaviour:
   m_ObjectHideFlags: 0

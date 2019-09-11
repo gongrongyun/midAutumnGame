@@ -7,11 +7,11 @@ public class TimeCount:MonoBehaviour
 {
     public GameObject text;
     public int TotalTime = 120;
-    public static bool End = false;
+    public static bool End;
 
     void Start()
     {
-
+        End = false;
         StartCoroutine(CountDown());
 
     }
