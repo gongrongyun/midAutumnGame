@@ -616,6 +616,8 @@ MonoBehaviour:
   _moonCake3: {fileID: 3966761246026097388, guid: 0283dece66b95594fa3fdb7705a73578,
     type: 3}
   _bomb: {fileID: 3530253692457186408, guid: c616af874ad437148a271edf9d70b7da, type: 3}
+  _fish: {fileID: 4205449660535994888, guid: 2a2c7053d1cb5404289ea99637e51921, type: 3}
+  _banana: {fileID: 2152404300518208371, guid: 3af5c028c920d1846bea1f77077e5a14, type: 3}
   MainMenu: {fileID: 2034884945}
   GameUI: {fileID: 1348277851}
   GameOverUI: {fileID: 912283794}

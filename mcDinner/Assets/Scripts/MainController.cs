@@ -54,7 +54,7 @@ public class MainController : MonoBehaviour
                 if (Input.GetMouseButton(0))
                     Player.acceleration = 2f;
                 else
-                    Player.acceleration = 0.5f;
+                    Player.acceleration = 0.25f;
             }
             else
             {
@@ -134,34 +134,30 @@ public class MainController : MonoBehaviour
 
     public void Spawn()
     {
-        Vector3 position = new Vector3(UnityEngine.Random.Range(-screenWidth / 2 + moonCakeRadius, screenWidth / 2 - moonCakeRadius),
-            UnityEngine.Random.Range(-screenHeight / 2 + moonCakeRadius, 0.85f * screenHeight / 2 - moonCakeRadius), 0);
+        Vector3 position = new Vector3(Random.Range(-screenWidth / 2 + moonCakeRadius, screenWidth / 2 - moonCakeRadius),
+            Random.Range(-screenHeight / 2 + moonCakeRadius, 0.85f * screenHeight / 2 - moonCakeRadius), 0);
         if (Physics2D.OverlapCircle(position, moonCakeRadius) == null)
         {
-            int random = UnityEngine.Random.Range(0, 10);
-            GameObject gameObject;
-            if (random > 7)
+            int random = Random.Range(0, 12);
+            if (random > 11)
                 Instantiate(_moonCake, position, Quaternion.identity);
-            else if (random > 4)
+            else if (random > 8)
                 Instantiate(_moonCake2, position, Quaternion.identity);
-            else if (random > 1)
+            else if (random > 5)
                 Instantiate(_moonCake3, position, Quaternion.identity);
             else
             {
-                int rubbish_random = UnityEngine.Random.Range(0, 10);
-                if (rubbish_random > 8)
+                GameObject gameObject;
+                if (random > 3)
                 {
-                    Instantiate(_fish, position, Quaternion.identity);
                     gameObject = Instantiate(_fish, position, Quaternion.identity);
                 }
-                else if (rubbish_random > 4)
+                else if (random > 1)
                 {
-                    Instantiate(_banana, position, Quaternion.identity);
                     gameObject = Instantiate(_banana, position, Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(_bomb, position, Quaternion.identity);
                     gameObject = Instantiate(_bomb, position, Quaternion.identity);
                 }
                 Destroy(gameObject, 10f);

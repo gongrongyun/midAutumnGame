@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        acceleration = 0.5f;
+        acceleration = 0.25f;
         quality = 20;
         score = 0;
         rig = GetComponent<Rigidbody2D>();
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake")
         {
             GameUIController.Combo("1");
-            quality += 5;
+            quality += 10;
             if (quality > 100)
             {
                 quality = 100;
@@ -80,33 +80,33 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bomb")
         {
-            Debug.Log("error1");
             GameUIController.cakes.Clear();
             quality -= 60;
             if (quality <= 0)
+            {
                 quality = 0;
                 MainController.isGaming = false;
+            }
+            score += 2;
             rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "Fish")
         {
-            Debug.Log("error2");
             GameUIController.cakes.Clear();
             quality = 0;
-            if (quality <= 0)
-                quality = 0;
-                MainController.isGaming = false;
-                rig.velocity = new Vector2(0, 0);
+            MainController.isGaming = false;
+            rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "Banana")
         {
-            Debug.Log("error3");
             GameUIController.cakes.Clear();
-            quality -= 60;
+            quality -= 30;
             if (quality <= 0)
+            {
                 quality = 0;
                 MainController.isGaming = false;
-                rig.velocity = new Vector2(0, 0);
+            }
+            rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "MoonCake2")
         {
@@ -116,7 +116,7 @@ public class Player : MonoBehaviour
             {
                 quality = 100;
             }
-            score += 10;
+            score += 5;
             MainController.sum--;
         }
         if (collision.gameObject.tag == "MoonCake3")
@@ -127,7 +127,7 @@ public class Player : MonoBehaviour
             {
                 quality = 100;
             }
-            score += 10;
+            score += 5;
             MainController.sum--;
         }
         Destroy(collision.gameObject);
