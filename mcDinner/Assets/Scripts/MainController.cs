@@ -116,7 +116,6 @@ public class MainController : MonoBehaviour
 
     private void EndGame()
     {
-        GetComponent<AudioSource>().Stop();
         CancelInvoke("Count");
         if(TimeCount.End == true)
         {
