@@ -32,6 +32,7 @@ public class Player : MonoBehaviour
         if (MainController.isGaming)
         {
             Move();
+            Debug.Log(rig.velocity);
         }
     }
 
@@ -41,8 +42,25 @@ public class Player : MonoBehaviour
         vertical = Input.acceleration.y;
         //horizontal = Input.GetAxisRaw("Horizontal");
         //vertical = Input.GetAxisRaw("Vertical");
-        rig.velocity = new Vector2(rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration,
-            rig.velocity.y + vertical * Time.fixedDeltaTime * acceleration);
+        float vx = rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration;
+        if (vx > 1)
+        {
+            vx = 1;
+        }
+        if (vx < -1)
+        {
+            vx = -1;
+        }
+        float vy = rig.velocity.y + vertical * Time.fixedDeltaTime * acceleration;
+        if (vy > 1)
+        {
+            vy = 1;
+        }
+        if (vy < -1)
+        {
+            vy = -  1;
+        }
+        rig.velocity = new Vector2(vx, vy);
         if (rig.position.x + radius > MainController.screenWidth / 2)
         {
             rig.position = new Vector2(MainController.screenWidth / 2 - radius, rig.position.y);
@@ -92,6 +110,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Fish")
         {
+            Handheld.Vibrate();
             GameUIController.cakes.Clear();
             quality = 0;
             MainController.isGaming = false;

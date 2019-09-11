@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5135526490903651284}
   - component: {fileID: 2268434470888474335}
   - component: {fileID: 9085186856645872435}
+  - component: {fileID: 4882094696435204912}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Fish
@@ -96,3 +97,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.8899999
+--- !u!95 &4882094696435204912
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4205449660535994888}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 03efe294317fdc844a9afd1e527d0116, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
