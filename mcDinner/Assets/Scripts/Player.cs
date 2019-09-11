@@ -70,12 +70,12 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake")
         {
             GameUIController.Combo("1");
-            quality += 10;
+            quality += 30;
             if (quality > 100)
             {
                 quality = 100;
             }
-            score += 10;
+            score += 5;
             MainController.sum--;
         }
         if (collision.gameObject.tag == "Bomb")
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
                 quality = 0;
                 MainController.isGaming = false;
             }
-            score += 2;
+            score += 5;
             rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "Fish")
@@ -111,23 +111,23 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "MoonCake2")
         {
             GameUIController.Combo("2");
-            quality += 10;
+            quality += 5;
             if (quality > 100)
             {
                 quality = 100;
             }
-            score += 5;
+            score += 20;
             MainController.sum--;
         }
         if (collision.gameObject.tag == "MoonCake3")
         {
             GameUIController.Combo("3");
-            quality += 10;
+            quality += 15;
             if (quality > 100)
             {
                 quality = 100;
             }
-            score += 5;
+            score += 10;
             MainController.sum--;
         }
         Destroy(collision.gameObject);
