@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public Player player;
-    public Text _combo;
+    public AudioClip Eat;
+    public AudioClip Hard;
+    public AudioClip Hey;
     public static int quality;
     public static int score;
     public static float acceleration;
@@ -87,6 +89,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "MoonCake")
         {
+            PlayAudio(Eat);
             GameUIController.Combo("1");
             quality += 30;
             if (quality > 100)
@@ -98,6 +101,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Bomb")
         {
+            PlayAudio(Hey);
             GameUIController.cakes.Clear();
             quality -= 60;
             if (quality <= 0)
@@ -110,6 +114,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Fish")
         {
+            PlayAudio(Hard);
             Handheld.Vibrate();
             GameUIController.cakes.Clear();
             quality = 0;
@@ -118,6 +123,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "Banana")
         {
+            PlayAudio(Hey);
             GameUIController.cakes.Clear();
             quality -= 30;
             if (quality <= 0)
@@ -129,6 +135,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "MoonCake2")
         {
+            PlayAudio(Eat);
             GameUIController.Combo("2");
             quality += 5;
             if (quality > 100)
@@ -140,6 +147,7 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.tag == "MoonCake3")
         {
+            PlayAudio(Eat);
             GameUIController.Combo("3");
             quality += 15;
             if (quality > 100)
@@ -152,4 +160,9 @@ public class Player : MonoBehaviour
         Destroy(collision.gameObject);
     }
 
+    private void PlayAudio(AudioClip music)
+    {
+        GetComponent<AudioSource>().clip = music;
+        GetComponent<AudioSource>().Play();
+    }
 }
