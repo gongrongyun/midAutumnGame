@@ -52,9 +52,9 @@ public class MainController : MonoBehaviour
             if (isGaming)
             {
                 if (Input.GetMouseButton(0))
-                    Player.acceleration = 2f;
+                    Player.acceleration *= 2;
                 else
-                    Player.acceleration = 0.25f;
+                    Player.acceleration /= 2;
             }
             else
             {

@@ -6,6 +6,7 @@ public class Record : MonoBehaviour
 {
     public static int score = -1;
     public static bool mute = false;
+    public static float acceleration = 0.25f;
 
     public static void SaveScore()
     {
@@ -67,6 +68,38 @@ public class Record : MonoBehaviour
 
         BinaryFormatter bf = new BinaryFormatter();
         mute = (bool)bf.Deserialize(file);
+        file.Close();
+    }
+
+    public static void SaveAcceleration()
+    {
+        string destination = Application.persistentDataPath + "/acceleration.dat";
+        FileStream file;
+
+        if (File.Exists(destination)) file = File.OpenWrite(destination);
+        else file = File.Create(destination);
+
+        acceleration = Player.acceleration;
+        BinaryFormatter bf = new BinaryFormatter();
+        bf.Serialize(file, acceleration);
+        file.Close();
+    }
+
+    public static void LoadAcceleration()
+    {
+        string destination = Application.persistentDataPath + "/acceleration.dat";
+        FileStream file;
+
+        if (File.Exists(destination)) file = File.OpenRead(destination);
+        else
+        {
+            Debug.Log("error");
+            acceleration = 0.25f;
+            return;
+        }
+
+        BinaryFormatter bf = new BinaryFormatter();
+        acceleration = (float)bf.Deserialize(file);
         file.Close();
     }
 }

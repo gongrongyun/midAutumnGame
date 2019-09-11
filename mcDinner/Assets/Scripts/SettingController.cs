@@ -7,6 +7,7 @@ public class SettingController : MonoBehaviour
 {
     public Toggle mute;
     public Text score;
+    public Slider Sensitivity;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,11 +20,18 @@ public class SettingController : MonoBehaviour
         {
             score.text = "" + Record.score;
         }
+        Record.LoadAcceleration();
+        Sensitivity.value = (Record.acceleration - 0.25f) * 4;
     }
 
     public void ChangeMute()
     {
         MainController.mute = mute.isOn;
         Record.SaveMute();
+    }
+    public void ChangeSensitivity()
+    {
+        Player.acceleration = Sensitivity.value/4 + 0.25f;
+        Record.SaveAcceleration();
     }
 }
