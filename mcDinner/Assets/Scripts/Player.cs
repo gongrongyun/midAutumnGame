@@ -38,10 +38,10 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        horizontal = Input.acceleration.x;
-        vertical = Input.acceleration.y;
-        //horizontal = Input.GetAxisRaw("Horizontal");
-        //vertical = Input.GetAxisRaw("Vertical");
+        //horizontal = Input.acceleration.x;
+        //vertical = Input.acceleration.y;
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
         float vx = rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration;
         if (vx > 1)
         {
