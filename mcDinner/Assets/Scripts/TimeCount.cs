@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class TimeCount:MonoBehaviour
 {
     public GameObject text;
-    public int TotalTime = 60;
+    public int TotalTime = 120;
+    public static bool End = false;
 
     void Start()
     {
@@ -22,7 +23,11 @@ public class TimeCount:MonoBehaviour
             text.GetComponent<Text>().text = TotalTime.ToString();
             yield return new WaitForSeconds(1);
             TotalTime--;
-
+            if (TotalTime == 0)
+            {
+                MainController.isGaming = false;
+                End = true;
+            }
         }
     }
 }

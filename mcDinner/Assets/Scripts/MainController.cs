@@ -59,12 +59,14 @@ public class MainController : MonoBehaviour
             else
             {
                 EndGame();
+                Time.timeScale = 0;
             }
         }
     }
 
     public void StartGame()
     {
+        Time.timeScale = 1;
         startGame = true;
         isGaming = true;
         player = Instantiate(_player, new Vector3(0, 0, 0), Quaternion.identity);
@@ -115,15 +117,24 @@ public class MainController : MonoBehaviour
     private void EndGame()
     {
         CancelInvoke("Count");
-        if (player != null && Player.score > 1000)
+        if(TimeCount.End == true)
         {
-            GameOverTitle.text = "你太nb了";
-        } else if(player != null && Player.score < 200)
+            GameOverTitle.text = "时间到";
+        }
+        else
         {
-            GameOverTitle.text = "多吃点月饼也不会胖哦";
-        } else
-        {
-            GameOverTitle.text = "哎哟 不错哦";
+            if (player != null && Player.score > 500)
+            {
+                GameOverTitle.text = "你太nb了";
+            }
+            else if (player != null && Player.score < 200)
+            {
+                GameOverTitle.text = "多吃点月饼也不会胖哦";
+            }
+            else
+            {
+                GameOverTitle.text = "哎哟 不错哦";
+            }
         }
         GameOverScore.text = "" + Player.score;
         GameOverUI.SetActive(true);
