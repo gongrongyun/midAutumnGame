@@ -245,7 +245,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 5
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
+  AndroidKeystoreName: D:/Android-KeyStore/android.keystore
   AndroidKeyaliasName: 
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 1
@@ -263,7 +263,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 10900, guid: 0000000000000000f000000000000000, type: 0}
+      m_Icon: {fileID: 2800000, guid: 0d91366543615f8448fec1eb038898fc, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

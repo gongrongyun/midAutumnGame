@@ -116,6 +116,7 @@ public class MainController : MonoBehaviour
 
     private void EndGame()
     {
+        GetComponent<AudioSource>().Stop();
         CancelInvoke("Count");
         if(TimeCount.End == true)
         {
@@ -161,7 +162,7 @@ public class MainController : MonoBehaviour
                 GameObject gameObject;
                 if (random > 3)
                 {
-                    gameObject = Instantiate(_fish, position, Quaternion.identity);
+                    gameObject = Instantiate(_bomb, position, Quaternion.identity);
                 }
                 else if (random > 1)
                 {
@@ -169,7 +170,7 @@ public class MainController : MonoBehaviour
                 }
                 else
                 {
-                    gameObject = Instantiate(_bomb, position, Quaternion.identity);
+                    gameObject = Instantiate(_fish, position, Quaternion.identity);
                 }
                 Destroy(gameObject, 10f);
                 Invoke("sub", 10f);
@@ -193,6 +194,7 @@ public class MainController : MonoBehaviour
     }
     public void Exit()
     {
+        GetComponent<AudioSource>().Stop();
         Application.Quit();
     }
 }   
