@@ -62,7 +62,7 @@ public class Record : MonoBehaviour
         else
         {
             Debug.Log("error");
-            mute = true;
+            mute = false;
             return;
         }
 
