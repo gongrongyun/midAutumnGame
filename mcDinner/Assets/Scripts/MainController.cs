@@ -38,6 +38,7 @@ public class MainController : MonoBehaviour
         moonCakeRadius = _moonCake.GetComponent<SpriteRenderer>().size.y / 2;
         sum = 0;
         Record.LoadMute();
+        Record.LoadAcceleration();
         mute = Record.mute;
         GetComponent<AudioSource>().clip = MenuAudio;
         GetComponent<AudioSource>().Play();
@@ -52,9 +53,9 @@ public class MainController : MonoBehaviour
             if (isGaming)
             {
                 if (Input.GetMouseButton(0))
-                    Player.acceleration *= 2;
+                    Player.acceleration = 2 * Record.acceleration;
                 else
-                    Player.acceleration /= 2;
+                    Player.acceleration = Record.acceleration;
             }
             else
             {

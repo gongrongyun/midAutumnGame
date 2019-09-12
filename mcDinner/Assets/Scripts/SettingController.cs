@@ -8,6 +8,7 @@ public class SettingController : MonoBehaviour
     public Toggle mute;
     public Text score;
     public Slider Sensitivity;
+
     // Start is called before the first frame update
     void Awake()
     {
