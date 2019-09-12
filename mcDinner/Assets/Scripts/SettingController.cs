@@ -32,7 +32,7 @@ public class SettingController : MonoBehaviour
     }
     public void ChangeSensitivity()
     {
-        Player.acceleration = Sensitivity.value/4 + 0.25f;
+        Player.acceleration = Sensitivity.value * 0.75f + 0.25f;
         Record.SaveAcceleration();
     }
 }

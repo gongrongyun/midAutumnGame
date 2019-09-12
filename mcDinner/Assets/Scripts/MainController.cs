@@ -23,6 +23,7 @@ public class MainController : MonoBehaviour
     public GameObject GameOverUI;
     public Text GameOverTitle;
     public Text GameOverScore;
+    public Text GameOverCause;
     public AudioClip MenuAudio;
     public AudioClip GameAudio;
 
@@ -126,10 +127,11 @@ public class MainController : MonoBehaviour
         CancelInvoke("Count");
         if(TimeCount.End == true)
         {
-            GameOverTitle.text = "时间到";
+            GameOverCause.text = "时间到";
         }
         else
         {
+            GameOverCause.text = "游戏结束";
             if (player != null && Player.score > 500)
             {
                 GameOverTitle.text = "你太nb了";

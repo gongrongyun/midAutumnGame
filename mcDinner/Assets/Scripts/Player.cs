@@ -39,10 +39,10 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        horizontal = Input.acceleration.x;
-        vertical = Input.acceleration.y;
-        //horizontal = Input.GetAxisRaw("Horizontal");
-        //vertical = Input.GetAxisRaw("Vertical");
+        //horizontal = Input.acceleration.x;
+        //vertical = Input.acceleration.y;
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
         float vx = rig.velocity.x + horizontal * Time.fixedDeltaTime * acceleration;
         if (vx > 1)
         {
@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
                 quality = 0;
                 MainController.isGaming = false;
             }
-            score += 5;
+            score += 100;
             rig.velocity = new Vector2(0, 0);
         }
         if (collision.gameObject.tag == "Fish")
