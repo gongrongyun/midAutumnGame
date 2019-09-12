@@ -10,6 +10,7 @@ TagManager:
   - MoonCake3
   - Banana
   - Fish
+  - Check
   layers:
   - Default
   - TransparentFX

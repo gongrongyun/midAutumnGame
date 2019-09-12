@@ -17,6 +17,7 @@ public class MainController : MonoBehaviour
     public GameObject _bomb;
     public GameObject _fish;
     public GameObject _banana;
+    public GameObject _check;
     public GameObject MainMenu;
     public GameObject GameUI;
     public GameObject GameOverUI;
@@ -26,6 +27,7 @@ public class MainController : MonoBehaviour
     public AudioClip GameAudio;
 
     private Player player;
+    private GameObject check;
     private float moonCakeRadius;
     private bool startGame;
 
@@ -43,6 +45,7 @@ public class MainController : MonoBehaviour
         GetComponent<AudioSource>().clip = MenuAudio;
         GetComponent<AudioSource>().Play();
         GetComponent<AudioSource>().mute = mute;
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class MainController : MonoBehaviour
                     Player.acceleration = 2 * Record.acceleration;
                 else
                     Player.acceleration = Record.acceleration;
+                check.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, 0);
             }
             else
             {
@@ -74,6 +78,7 @@ public class MainController : MonoBehaviour
         InvokeRepeating("Count", 2f, 2f);
         GetComponent<AudioSource>().clip = GameAudio;
         GetComponent<AudioSource>().Play();
+        check = Instantiate(_check, new Vector3(0, 0, 0), Quaternion.identity);
     }
     public void PauseGame()
     {
@@ -117,6 +122,7 @@ public class MainController : MonoBehaviour
 
     private void EndGame()
     {
+        GetComponent<AudioSource>().Stop();
         CancelInvoke("Count");
         if(TimeCount.End == true)
         {
