@@ -22,7 +22,7 @@ public class SettingController : MonoBehaviour
             score.text = "" + Record.score;
         }
         Record.LoadAcceleration();
-        Sensitivity.value = (Record.acceleration - 0.25f) * 4;
+        Sensitivity.value = (Record.acceleration - 0.25f) * 4 / 3;
     }
 
     public void ChangeMute()

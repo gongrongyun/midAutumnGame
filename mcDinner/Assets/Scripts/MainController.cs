@@ -132,18 +132,18 @@ public class MainController : MonoBehaviour
         else
         {
             GameOverCause.text = "游戏结束";
-            if (player != null && Player.score > 500)
-            {
-                GameOverTitle.text = "你太nb了";
-            }
-            else if (player != null && Player.score < 200)
-            {
-                GameOverTitle.text = "多吃点月饼也不会胖哦";
-            }
-            else
-            {
-                GameOverTitle.text = "哎哟 不错哦";
-            }
+        }
+        if (player != null && Player.score > 1000)
+        {
+            GameOverTitle.text = "你太nb了";
+        }
+        else if (player != null && Player.score < 200)
+        {
+            GameOverTitle.text = "多吃点月饼也不会胖哦";
+        }
+        else
+        {
+            GameOverTitle.text = "哎哟 不错哦";
         }
         GameOverScore.text = "" + Player.score;
         GameOverUI.SetActive(true);
